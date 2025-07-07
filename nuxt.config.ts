@@ -3,6 +3,11 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-05-15",
   devtools: { enabled: false },
   css: ["~/assets/css/main.css"],
-  modules: ["@nuxt/eslint", "@nuxt/icon", "@nuxt/ui"],
+  modules: [
+    "@nuxt/eslint",
+    "@nuxt/icon",
+    "@nuxt/ui",
+  ],
   plugins: ["~/plugins/firebase.ts"],
+  app: { baseURL: "/nuxt-ev/", buildAssetsDir: "assets" },
 });

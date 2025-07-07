@@ -20,7 +20,7 @@ export default {
 
 <template>
   <main>
-    <h1 class="text-4xl center">Electric Vehicles</h1>
+    <h1 class="text-4xl center">Electric Vehicles !</h1>
     <div v-for="ev in evs" :key="ev.id">
       <UPopover>
         <UButton>{{ ev.brand }} {{ ev.model }}</UButton>

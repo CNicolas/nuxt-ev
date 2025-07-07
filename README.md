@@ -73,3 +73,21 @@ bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+## Deploy
+
+Thanks to https://github.com/lucpotage/nuxt-github-pages?tab=readme-ov-file
+
+```bash
+# npm
+npm run build-and-deploy
+
+# pnpm
+pnpm build-and-deploy
+
+# yarn
+yarn build-and-deploy
+
+# bun
+bun run build-and-deploy
+```
