@@ -1,6 +1,5 @@
 <script>
-import { db } from "~/plugins/firebase";
-import { collection, getDocs } from "firebase/firestore";
+import { getDocs, collection } from "firebase/firestore";
 
 export default {
   data() {
@@ -9,7 +8,9 @@ export default {
     };
   },
   async mounted() {
-    const snapshot = await getDocs(collection(db, "EVs"));
+    const firestore = useNuxtApp().$firestore;
+    const snapshot = await getDocs(collection(firestore, "EVs"));
+
     this.evs = snapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
@@ -32,7 +33,6 @@ export default {
     </div>
   </main>
 </template>
-
 
 <style>
 @import url("./index.css");

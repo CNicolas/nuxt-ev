@@ -29,6 +29,9 @@ importers:
       nuxt:
         specifier: ^3.17.6
         version: 3.17.6(@parcel/watcher@2.5.1)(@types/node@24.0.10)(@vue/compiler-sfc@3.5.17)(db0@0.3.2)(eslint@9.30.1(jiti@2.4.2))(ioredis@5.6.1)(lightningcss@1.30.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.44.2)(terser@5.43.1)(typescript@5.8.3)(vite@6.3.5(@types/node@24.0.10)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.43.1)(yaml@2.8.0))(yaml@2.8.0)
+      nuxt-vuefire:
+        specifier: ^1.0.5
+        version: 1.0.5(@firebase/app-types@0.9.3)(firebase@11.10.0)(magicast@0.3.5)(vuefire@3.2.1(consola@3.4.2)(firebase@11.10.0)(vue@3.5.17(typescript@5.8.3)))
       tailwindcss:
         specifier: ^4.1.11
         version: 4.1.11
@@ -41,10 +44,10 @@ importers:
       vue-router:
         specifier: ^4.5.1
         version: 4.5.1(vue@3.5.17(typescript@5.8.3))
+      vuefire:
+        specifier: ^3.2.1
+        version: 3.2.1(consola@3.4.2)(firebase@11.10.0)(vue@3.5.17(typescript@5.8.3))
     devDependencies:
-      '@nuxtjs/dotenv':
-        specifier: ^1.4.2
-        version: 1.4.2
       gh-pages:
         specifier: ^6.3.0
         version: 6.3.0
@@ -931,9 +934,6 @@ packages:
   '@nuxtjs/color-mode@3.5.2':
     resolution: {integrity: sha512-cC6RfgZh3guHBMLLjrBB2Uti5eUoGM9KyauOaYS9ETmxNWBMTvpgjvSiSJp1OFljIXPIqVTJ3xtJpSNZiO3ZaA==}
 
-  '@nuxtjs/dotenv@1.4.2':
-    resolution: {integrity: sha512-/3+Cw5qLNIQD8ZvXLJG1suxvfC4ltlUuYegOwirHrLrzptHh/+rCkBXrNbrz2qAiwc+/yK91XjZGGzNM1dFmCw==}
-
   '@oxc-parser/binding-android-arm64@0.75.1':
     resolution: {integrity: sha512-hJt8uKPKj0R+3mKCWZLb14lIJ5o2SvVmO/0FwzbBR4Pdrlmp7mWG28Uui1VSIrFVqr47S38dswfCz5StMhGRjA==}
     engines: {node: '>=20.0.0'}
@@ -1129,6 +1129,10 @@ packages:
 
   '@poppinss/exception@1.2.2':
     resolution: {integrity: sha512-m7bpKCD4QMlFCjA/nKTs23fuvoVFoA83brRKmObCUNmi/9tVu8Ve3w4YQAnJu4q3Tjf5fr685HYIC/IA2zHRSg==}
+
+  '@posva/lru-cache@10.0.1':
+    resolution: {integrity: sha512-8rksr4MD7zNltsgerU9sx3OfOo8l9lABXf8/tII6XijgvTqFO+e+P+cSyfSQhAPgi458LMx75kUTLX3Zxwdc+g==}
+    engines: {node: 14 || >=16.14}
 
   '@protobufjs/aspromise@1.1.2':
     resolution: {integrity: sha512-j+gKExEuLmKwvz3OgROXtrJ2UG2x8Ch2YZUxahh+s1F2HZ+wAceUNLkvy6zKCPVRkU++ZWQrdxsUeQXmcg4uoQ==}
@@ -2355,10 +2359,6 @@ packages:
     resolution: {integrity: sha512-uBq4egWHTcTt33a72vpSG0z3HnPuIl6NqYcTrKEg2azoEyl2hpW0zqlxysq2pK9HlDIHyHyakeYaYnSAwd8bow==}
     engines: {node: '>=12'}
 
-  dotenv@8.6.0:
-    resolution: {integrity: sha512-IrPdXQsk2BbzvCBGBOTmmSH5SodmqZNt4ERAZDmW4CT+tL8VtvinqywuANaFu4bOMWki16nqf0e4oC0QIaDr/g==}
-    engines: {node: '>=10'}
-
   dunder-proto@1.0.1:
     resolution: {integrity: sha512-KIN/nDJBQRcXw0MLVhZE9iQHmG68qAVIBg9CqmUYjmQIhgij9U5MFvrqkUL5FbtyyzZuOeOt0zdeRe4UY7ct+A==}
     engines: {node: '>= 0.4'}
@@ -3552,6 +3552,22 @@ packages:
   nth-check@2.1.1:
     resolution: {integrity: sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==}
 
+  nuxt-vuefire@1.0.5:
+    resolution: {integrity: sha512-e165U1jGTd9t3nk81HBpZg375OY8G2Wnbjr7ZhE6ach3U4d3Mpm3XJQTts3bStLj2W//cDciK7EcLD2lAYtkGA==}
+    peerDependencies:
+      '@firebase/app-types': '>=0.8.1'
+      firebase: ^9.0.0 || ^10.0.0 || ^11.1.0
+      firebase-admin: ^11.3.0 || ^12.2.0 || ^13.0.1
+      firebase-functions: ^4.1.0 || ^5.0.0 || ^6.1.2
+      vuefire: '>=3.2.1'
+    peerDependenciesMeta:
+      '@firebase/app-types':
+        optional: true
+      firebase-admin:
+        optional: true
+      firebase-functions:
+        optional: true
+
   nuxt@3.17.6:
     resolution: {integrity: sha512-kOsoJk7YvlcUChJXhCrVP18zRWKquUdrZSoJX8bCcQ54OhFOr4s2VhsxnbJVP7AtCiBSLbKuQt6ZBO7lE159Aw==}
     engines: {node: ^20.9.0 || >=22.0.0}
@@ -4319,6 +4335,10 @@ packages:
     resolution: {integrity: sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==}
     engines: {node: '>=8'}
 
+  strip-json-comments@5.0.2:
+    resolution: {integrity: sha512-4X2FR3UwhNUE9G49aIsJW5hRRR3GXGTBTZRMfv568O60ojM8HcWjV/VxAxCDW3SUND33O6ZY66ZuRcdkj73q2g==}
+    engines: {node: '>=14.16'}
+
   strip-literal@3.0.0:
     resolution: {integrity: sha512-TcccoMhJOM3OebGhSBEmp3UZ2SfDMZUEBdRA/9ynfLi8yYajyWX3JiXArcJt4Umh4vISpspkQIY8ZZoCqjbviA==}
 
@@ -4817,6 +4837,22 @@ packages:
       typescript: '*'
     peerDependenciesMeta:
       typescript:
+        optional: true
+
+  vuefire@3.2.1:
+    resolution: {integrity: sha512-APj/iFdEec9kO71Lsiv/7opo9xL0D43l7cjwh84rJ5WMzrmpi9z774zzN+PPhBpD6bXyueLcfg0VlOUhI9/jUA==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      '@vue/composition-api': '*'
+      consola: ^3.2.3
+      firebase: ^9.0.0 || ^10.0.0 || ^11.0.0
+      vue: ^2.7.0 || ^3.2.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+      consola:
+        optional: true
+      firebase:
         optional: true
 
   web-streams-polyfill@3.3.3:
@@ -6369,11 +6405,6 @@ snapshots:
     transitivePeerDependencies:
       - magicast
 
-  '@nuxtjs/dotenv@1.4.2':
-    dependencies:
-      consola: 3.4.2
-      dotenv: 8.6.0
-
   '@oxc-parser/binding-android-arm64@0.75.1':
     optional: true
 
@@ -6504,6 +6535,8 @@ snapshots:
       supports-color: 10.0.0
 
   '@poppinss/exception@1.2.2': {}
+
+  '@posva/lru-cache@10.0.1': {}
 
   '@protobufjs/aspromise@1.1.2': {}
 
@@ -7726,8 +7759,6 @@ snapshots:
       type-fest: 4.41.0
 
   dotenv@16.6.1: {}
-
-  dotenv@8.6.0: {}
 
   dunder-proto@1.0.1:
     dependencies:
@@ -9042,6 +9073,19 @@ snapshots:
     dependencies:
       boolbase: 1.0.0
 
+  nuxt-vuefire@1.0.5(@firebase/app-types@0.9.3)(firebase@11.10.0)(magicast@0.3.5)(vuefire@3.2.1(consola@3.4.2)(firebase@11.10.0)(vue@3.5.17(typescript@5.8.3))):
+    dependencies:
+      '@nuxt/kit': 3.17.6(magicast@0.3.5)
+      '@posva/lru-cache': 10.0.1
+      firebase: 11.10.0
+      lodash-es: 4.17.21
+      strip-json-comments: 5.0.2
+      vuefire: 3.2.1(consola@3.4.2)(firebase@11.10.0)(vue@3.5.17(typescript@5.8.3))
+    optionalDependencies:
+      '@firebase/app-types': 0.9.3
+    transitivePeerDependencies:
+      - magicast
+
   nuxt@3.17.6(@parcel/watcher@2.5.1)(@types/node@24.0.10)(@vue/compiler-sfc@3.5.17)(db0@0.3.2)(eslint@9.30.1(jiti@2.4.2))(ioredis@5.6.1)(lightningcss@1.30.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.44.2)(terser@5.43.1)(typescript@5.8.3)(vite@6.3.5(@types/node@24.0.10)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.43.1)(yaml@2.8.0))(yaml@2.8.0):
     dependencies:
       '@nuxt/cli': 3.25.1(magicast@0.3.5)
@@ -9975,6 +10019,8 @@ snapshots:
 
   strip-json-comments@3.1.1: {}
 
+  strip-json-comments@5.0.2: {}
+
   strip-literal@3.0.0:
     dependencies:
       js-tokens: 9.0.1
@@ -10461,6 +10507,14 @@ snapshots:
       '@vue/shared': 3.5.17
     optionalDependencies:
       typescript: 5.8.3
+
+  vuefire@3.2.1(consola@3.4.2)(firebase@11.10.0)(vue@3.5.17(typescript@5.8.3)):
+    dependencies:
+      vue: 3.5.17(typescript@5.8.3)
+      vue-demi: 0.14.10(vue@3.5.17(typescript@5.8.3))
+    optionalDependencies:
+      consola: 3.4.2
+      firebase: 11.10.0
 
   web-streams-polyfill@3.3.3: {}
 

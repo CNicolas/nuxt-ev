@@ -1,18 +1,23 @@
 import { initializeApp } from "firebase/app";
+import type { FirebaseOptions } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
-const firebaseConfig = {
-    apiKey: "AIzaSyBARJeop_KsQ5N2XXbC0eG4lx2TLCJhtps",
-    authDomain: "nuxt-ev.firebaseapp.com",
-    projectId: "nuxt-ev",
-    storageBucket: "nuxt-ev.firebasestorage.app",
-    messagingSenderId: "366155786751",
-    appId: "1:366155786751:web:2d378cc2f454058b3c5fca"
+export default defineNuxtPlugin((nuxtApp) => {
+  const config = useRuntimeConfig();
+
+  const firebaseConfig: FirebaseOptions = {
+    apiKey: config.public.FIREBASE_API_KEY,
+    authDomain: config.public.FIREBASE_AUTH_DOMAIN,
+    projectId: config.public.FIREBASE_PROJECT_ID,
+    storageBucket: config.public.FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: config.public.FIREBASE_MESSAGING_SENDER_ID,
+    appId: config.public.FIREBASE_APP_ID,
   };
 
-// Initialiser Firebase
-export const app = initializeApp(firebaseConfig);
+  const app = initializeApp(firebaseConfig);
 
-export const db = getFirestore(app);
+  const firestore = getFirestore(app);
 
-export default db;
+  nuxtApp.vueApp.provide("firestore", firestore);
+  nuxtApp.provide("firestore", firestore);
+});
