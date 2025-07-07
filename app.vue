@@ -4,7 +4,7 @@ import { NuxtPage } from '#components';
 </script>
 
 <template>
-  <div>
+  <UApp>
     <NuxtPage />
-  </div>
+  </UApp>
 </template>

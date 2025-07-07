@@ -5,7 +5,7 @@ import { collection, getDocs } from "firebase/firestore";
 export default {
   data() {
     return {
-      evs:[],
+      evs: [],
     };
   },
   async mounted() {
@@ -20,9 +20,20 @@ export default {
 
 <template>
   <main>
-    <h1>Index page</h1>
-    <ul>
-      <li v-for="ev in evs" :key="ev.id">{{ ev.brand }} {{ ev.model }}</li>
-    </ul>
+    <h1 class="text-4xl center">Electric Vehicles</h1>
+    <div v-for="ev in evs" :key="ev.id">
+      <UPopover>
+        <UButton>{{ ev.brand }} {{ ev.model }}</UButton>
+
+        <template #content>
+          <pre>{{ ev }}</pre>
+        </template>
+      </UPopover>
+    </div>
   </main>
 </template>
+
+
+<style>
+@import url("./index.css");
+</style>
